@@ -36,8 +36,9 @@ $context = stream_context_create(array(
 $response = file_get_contents($interfaceHandlerURL, null, $context);
 $xmlResponse = simplexml_load_string($response);
 
-$xmlToArr = new xmlToArray($xmlResponse);
+$xmlToArr = new xmlToArray($xmlResponse->response->queryResponse->rows->row->fields);
 
+//var_dump($xmlResponse->response->queryResponse);
 echo json_encode($xmlToArr->xmlToArray());
 
 ?>
