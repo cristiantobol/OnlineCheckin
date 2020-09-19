@@ -1,3 +1,26 @@
-.card {
-    margin: 5rem;
+@media (min-width: 768px) {
+    .card {
+        margin: 4rem 8rem 4rem 8rem;
+    }
+    .home-page-title {
+        margin: 4rem 8rem 4rem 8rem;
+    }
+}
+
+label {
+    color: #2b336b;
+}
+
+.stay-dates-container {
+    padding: 10px 0 30px 0px;
+}
+
+.stay-dates {
+    color: #4F5FFF;
+}
+
+.checkin-button {
+    color: #fff;
+    background-color: #4F5FFF;
+    border-color: #4F5FFF;
 }
