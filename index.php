@@ -25,7 +25,7 @@
     <div class="container-fluid">
         <div class="home-page-title" style="color: #2b336b;">
             <h1>Check in now</h1>
-            <h5 style="color: #9DACC3">Enter your details bellow to complete the online check for your stay with Intercontinental Hotels</h5>
+            <h5 style="color: #9DACC3">Enter your details below to complete the online check for your stay with Intercontinental Hotels</h5>
             <input type="button" value="Get Reservation" class="btn btn-sm btn-primary" onclick="getReservation();" />
         </div>
         <div class="card">
