@@ -30,7 +30,7 @@
         </div>
         <div class="card">
             <div class="card-body">
-                
+
                 <br>
                 <div class="stay-dates-container">
                     <div class="row">
@@ -38,13 +38,20 @@
                             Arrival Date&nbsp;
                             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-return-left" fill="#4F5FFF" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5z" />
-                            </svg></div>
-
+                            </svg>
+                        </div>
                         <div class="col col-md-4" style="color: #394460">
                             Departure Date&nbsp;
                             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-return-right" fill="#4F5FFF" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" d="M1.5 1.5A.5.5 0 0 0 1 2v4.8a2.5 2.5 0 0 0 2.5 2.5h9.793l-3.347 3.346a.5.5 0 0 0 .708.708l4.2-4.2a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 8.3H3.5A1.5 1.5 0 0 1 2 6.8V2a.5.5 0 0 0-.5-.5z" />
-                            </svg></div>
+                            </svg>
+                        </div>
+                        <div class="col col-md-4" style="color: #394460">
+                            Confirmation Number&nbsp;
+                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-check" fill="#4F5FFF" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M10.97 4.97a.75.75 0 0 1 1.071 1.05l-3.992 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.236.236 0 0 1 .02-.022z" />
+                            </svg>
+                        </div>
                     </div>
                     <div class="row">
                         <div id="arrivalDate" class="col col-md-4 stay-dates">
@@ -52,6 +59,9 @@
                         </div>
                         <div id="departureDate" class="col col-md-4 stay-dates">
                             <h4>Fri, 24 December 2020</h4>
+                        </div>
+                        <div id="confirmationNumber" class="col col-md-4 stay-dates">
+                            <h4>H411OP</h4>
                         </div>
                     </div>
                 </div>
@@ -67,8 +77,8 @@
                             <input id="lastName" class="form-control form-control-lg" type="text" name="lastName" placeholder="Last Name" readonly>
                         </div>
                         <div class="form-group col-md-4">
-                            <label for="confirmationNumber">Confirmation Number</label>
-                            <input id="confirmationNumber" class="form-control form-control-lg" type="text" name="confirmationNumber" placeholder="Confirmation Number" readonly>
+                            <label for="inputDob">Date of birth</label>
+                            <input id="inputDob" class="form-control form-control-lg" type="text" placeholder="dd/mm/yyyy">
                         </div>
                     </div>
                     <div class="form-row">
@@ -137,12 +147,10 @@
                     </div>
                     <br>
                     <button type="button" class="btn btn-lg checkin-button">Check me in</button>
-                    <!-- <input data-provide="datepicker"> -->
                 </form>
             </div>
         </div>
     </div>
-
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -151,10 +159,16 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
     <script src="js/webservice.js"></script>
     <script src="js/datepicker/bootstrap-datepicker.min.js"></script>
+    <script src="js/jquery.inputmask.js"></script>
+    <script src="js/jquery.inputmask.date.extensions.js"></script>
+    <script src="js/jquery.inputmask.extensions.js"></script>
 
     <script>
-        $('.datepicker').datepicker({
-            autoclose: true,
+        $(function() {
+            //Datemask dd/mm/yyyy
+            $('#inputDob').inputmask('dd/mm/yyyy', {
+                'placeholder': 'dd/mm/yyyy'
+            })
         });
     </script>
 </body>
