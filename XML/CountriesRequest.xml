@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fidelio xmlns="V8XMLInterface" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="V8XMLInterface
+c:\duffy\Specifications\XMLInterface\FidelioXML.xsd" Version="1.1.0">
+	<request ID="1234"  UserName="XMLInterface" Password="interface">
+		<query ReqType="Country">
+			<fields>
+				<field name="CountryISO2"/>
+                <field name="CountryName"/>             
+			</fields>
+		</query>
+	</request>
+</fidelio>

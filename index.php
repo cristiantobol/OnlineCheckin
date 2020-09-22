@@ -27,6 +27,7 @@
             <h1>Check in now</h1>
             <h5 style="color: #9DACC3">Enter your details below to complete the online check for your stay with Intercontinental Hotels</h5>
             <input type="button" value="Get Reservation" class="btn btn-sm btn-primary" onclick="getReservation();" />
+            <input type="button" value="Get Countries" class="btn btn-sm btn-primary" onclick="getCountries();" />
         </div>
         <div class="card">
             <div class="card-body">
@@ -115,7 +116,7 @@
                             <label for="inputCountry">Country</label>
                             <select id="inputCountry" class="form-control form-control-lg">
                                 <option selected>Please Select</option>
-                                <option>...</option>
+                                
                             </select>
                         </div>
                         <div class="form-group col-md-3">
@@ -168,7 +169,8 @@
             //Datemask dd/mm/yyyy
             $('#inputDob').inputmask('dd/mm/yyyy', {
                 'placeholder': 'dd/mm/yyyy'
-            })
+            });
+            getCountries();
         });
     </script>
 </body>

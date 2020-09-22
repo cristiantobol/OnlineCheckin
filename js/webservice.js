@@ -1,35 +1,50 @@
-//$(document).ready(function () {
-    function getReservation() {
-        $.ajax({
-            url: 'GetReservation.php',
-            type: 'GET',
-            dataType: 'json',
-            success: function (data) {
-                // data.fields.field.forEach(element => {
-                //     console.log(element);
-                // });
-                //console.log(data.fields.field);
+function getReservation() {
+    $.ajax({
+        url: 'GetReservation.php',
+        type: 'GET',
+        dataType: 'json',
+        success: function (data) {
+            var fields = data.fields.field;
+            var result = fields.filter(function (item) {
+                return item.attributes.name === "GuestFirstname" || item.attributes.name === "GuestName";
+            });
 
-                var fields = data.fields.field;
+            result.forEach(function (field) {
+                if (field.attributes.name === "GuestFirstname") {
+                    $("#firstName").val(field.value);
+                } else if (field.attributes.name === "GuestName") {
+                    $("#lastName").val(field.value);
+                }
 
-                var result = fields.filter(function(item) {
-                    return item.attributes.name === "GuestFirstname" || item.attributes.name === "GuestName";
-                });
+            });
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            alert(jqXHR + '\n' + textStatus + '\n' + errorThrown);
+        }
+    });
+}
 
-                result.forEach(function(field) {
-                    if(field.attributes.name === "GuestFirstname") {
-                        $("#firstName").val(field.value);
-                    } else if (field.attributes.name === "GuestName") {
-                        $("#lastName").val(field.value);
-                    }
+// Get Countries for dropdown in check in form
+function getCountries() {
+    $.ajax({
+        url: 'GetCountries.php',
+        type: 'GET',
+        dataType: 'json',
+        success: function (data) {
+            var fields = data.rows.row;
 
-                });
+            var result = fields.filter(function (item) {
+                return item.fields.field;
+            }).map(function (item) {
+                return item.fields.field;
+            });
 
-                console.log(result);
-            },
-            error: function (jqXHR, textStatus, errorThrown) {
-                alert(jqXHR + '\n' + textStatus + '\n' + errorThrown);
-            }
-        });
-    }
-//});
+            result.forEach(function (field) {
+                $("#inputCountry").append(new Option(field[1].value, field[0].value));
+            });
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            alert(jqXHR + '\n' + textStatus + '\n' + errorThrown);
+        }
+    });
+}
