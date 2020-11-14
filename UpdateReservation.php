@@ -1,12 +1,13 @@
 <?php
 
 require_once('utils/XmlToArray.php');
-include('XML/ReservationRequest.php');
+include('UpdateReservationRequest.php');
 
 $interfaceHandlerURL = "http://localhost/V8/FidelioIISWrapper.dll/FidelioXMLInterface.DataHandler";
 
-$xml1 = new ReservationHandler();
-$xml = $xml1->setXmlConditions('1', '0', 'cucu');
+// TODO: generate random string
+$xml1 = new UpdateReservationRequest(2249, '2240HLT1234');
+$xml = $xml1->updateReservation();
 
 $post_data = array(
     "xml" => $xml,
@@ -40,11 +41,6 @@ $context = stream_context_create(array(
 $response = file_get_contents($interfaceHandlerURL, null, $context);
 
 $xmlResponse = simplexml_load_string($response);
-$fields = $xmlResponse->response->queryResponse->rows->row->fields;
 
-if ($fields != null) {
-    $xmlToArr = new xmlToArray($fields);
-    echo json_encode($xmlToArr->xmlToArray());
-} else {
-    echo json_encode(array('error' => 'Invalid XML response'));
-}
+$xmlToArr = new xmlToArray($xmlResponse->response);
+echo json_encode($xmlToArr->xmlToArray());
