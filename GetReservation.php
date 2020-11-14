@@ -3,6 +3,7 @@
 require_once('utils/XmlToArray.php');
 include('XML/ReservationRequest.php');
 
+// production
 $interfaceHandlerURL = "http://localhost/V8/FidelioIISWrapper.dll/FidelioXMLInterface.DataHandler";
 
 $xml1 = new ReservationHandler();

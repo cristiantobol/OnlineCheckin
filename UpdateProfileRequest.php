@@ -4,8 +4,12 @@ class UpdateProfile {
     
     private $updateRequest;
 
-    public function __construct()
+    public function __construct(array $args = null)
     {
+        if(is_null($args)){
+            $args = $_POST;
+        }
+        
         $this->updateRequest = 
         '<?xml version="1.0" encoding="UTF-8"?>
         <fidelio xmlns="V8XMLInterface" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="V8XMLInterface
