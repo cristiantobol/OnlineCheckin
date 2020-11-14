@@ -85,3 +85,17 @@ function updateReservation() {
         }
     });
 }
+
+function updateProfile() {
+    $.ajax({
+        url: 'UpdateProfile.php',
+        type: 'PUT',
+        dataType: 'json',
+        success: function (data) {
+            
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            alert(jqXHR + '\n' + textStatus + '\n' + errorThrown);
+        }
+    });
+}
